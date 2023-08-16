@@ -16,6 +16,16 @@
   --bg-default: #0f1110;
 }
 
+@layer utilities {
+  .bg-gradient {
+    background-image: radial-gradient(
+      circle,
+      rgba(25,46,75,1) 0%,
+      rgba(10,10,10,1) 100%
+    );
+  }
+}
+
 body {
   background-color: var(--bg-default);
   background: radial-gradient(

@@ -11,6 +11,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'body-gradient':
+          'radial-gradient circle, rgba(25,46,75,1) 0%, rgba(10,10,10,1) 100%)',
       },
       colors: {
         primary: {
@@ -31,9 +33,20 @@ module.exports = {
             transform: 'translateY(0px)',
           },
         },
+        zoom: {
+          from: {
+            opacity: '0',
+            transform: 'scale(0.9)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         mobile: 'mobile .3s ease-in',
+        zoom: 'zoom .3s forwards',
       },
     },
   },
