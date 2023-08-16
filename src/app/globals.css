@@ -26,6 +26,12 @@
   }
 }
 
+@layer components {
+  .container {
+    @apply sm:max-w-[768px] md:max-w-[1440px];
+  }
+}
+
 body {
   background-color: var(--bg-default);
   background: radial-gradient(
