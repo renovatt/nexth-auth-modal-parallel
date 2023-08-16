@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import RouterLinks from '../RouterLinks'
 import { NavbarTypeProps } from '@/@types'
-import Link from 'next/link'
 import { CgMenuRightAlt } from 'react-icons/cg'
 
 const Navbar = ({ openModal }: NavbarTypeProps) => {
@@ -12,21 +12,21 @@ const Navbar = ({ openModal }: NavbarTypeProps) => {
         </li>
 
         <li className="m-2 p-2">
-          <RouterLinks href="#about-us" text="Sobre" />
+          <RouterLinks href="/views/about" text="Sobre" />
         </li>
 
         <li className="m-2 p-2">
-          <RouterLinks href="#shop" text="Loja" />
+          <RouterLinks href="/views/shop" text="Loja" />
         </li>
 
         <li className="m-2 p-2">
-          <RouterLinks href="#contacg" text="Contato" />
+          <RouterLinks href="/views/contact" text="Contato" />
         </li>
       </ul>
 
       <Link
-        href="#login"
-        className="bg-primary-700 hover:border-primary-700 hover:text-primary-700 mx-8 flex h-10 w-20 items-center justify-center rounded-full text-base text-white transition-all hover:border hover:bg-transparent md:m-0 md:ml-8"
+        href="/views/login"
+        className="mx-8 flex h-10 w-20 items-center justify-center rounded-full border border-primary-700 bg-primary-700 text-base text-white transition-all hover:bg-transparent hover:text-primary-700 md:m-0 md:ml-8"
       >
         Login
       </Link>

@@ -9,7 +9,7 @@ const NavbarMobile = ({ modal, closeModal }: NavbarMobileTypeProps) => {
         <nav
           data-testid="navbar-mobile"
           className={`absolute left-0 top-0 z-50 flex h-screen w-screen items-center justify-center backdrop-blur-md transition-all ease-in ${
-            modal ? 'animate-mobile flex' : ''
+            modal ? 'flex animate-mobile' : ''
           }`}
         >
           <ul className="flex w-full transform flex-col items-center justify-center gap-8 overflow-hidden transition-all">
@@ -18,16 +18,24 @@ const NavbarMobile = ({ modal, closeModal }: NavbarMobileTypeProps) => {
             </li>
 
             <li className="m-2 w-full p-2 text-center transition-all hover:scale-105">
-              <RouterLinks href="#about-us" text="Sobre" onClick={closeModal} />
-            </li>
-
-            <li className="m-2 w-full p-2 text-center transition-all hover:scale-105">
-              <RouterLinks href="#shop" text="Loja" onClick={closeModal} />
+              <RouterLinks
+                href="/views/about"
+                text="Sobre"
+                onClick={closeModal}
+              />
             </li>
 
             <li className="m-2 w-full p-2 text-center transition-all hover:scale-105">
               <RouterLinks
-                href="#contact"
+                href="/views/shop"
+                text="Loja"
+                onClick={closeModal}
+              />
+            </li>
+
+            <li className="m-2 w-full p-2 text-center transition-all hover:scale-105">
+              <RouterLinks
+                href="/views/contact"
                 text="Contato"
                 onClick={closeModal}
               />
