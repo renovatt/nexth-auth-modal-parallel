@@ -1,8 +1,10 @@
-import { credencialsLoginUser } from '@/services'
+import prisma from '@/lib'
 import NextAuth from 'next-auth/next'
-import CredentialsProvider from 'next-auth/providers/credentials'
-import GitHubProvider from 'next-auth/providers/github'
+import { BadRequesError } from '@/errors'
+import { credencialsLoginUser } from '@/services'
 import GoogleProvider from 'next-auth/providers/google'
+// import GitHubProvider from 'next-auth/providers/github'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 const handler = NextAuth({
   providers: [
@@ -51,18 +53,19 @@ const handler = NextAuth({
     }),
   ],
   // secret: process.env.NEXTAUTH_SECRET,
-  // callbacks: {
-  //   async jwt({ token, user }) {
-  //     return { ...token, ...user }
-  //   },
-  //   async session({ session, token }) {
-  //     session.user = token as any
-  //     return session
-  //   },
-  // },
-  // pages: {
-  //   signIn: '/views/login',
-  // },
+  callbacks: {
+    // async jwt({ token, user }) {
+    //   return { ...token, ...user }
+    // },
+    // async session({ session, token }) {
+    //   session.user = token as any
+    //   return session
+    // },
+  },
+  pages: {
+    // signIn: '/views/login',
+    signIn: '',
+  },
 })
 
 export { handler as GET, handler as POST }
