@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { loginSchema, registerSchema } from '@/zod'
 import { ReactNode } from 'react'
+import { loginSchema, registerSchema } from '@/zod'
 
 export type RouterLinksProps = {
   text: string
@@ -21,5 +21,7 @@ export type ContainerTypeProps = {
   children: ReactNode
 }
 
+type CredentialKeys = 'email' | 'password'
 export type LoginSchemaProps = z.infer<typeof loginSchema>
 export type RegisterSchemaProps = z.infer<typeof registerSchema>
+export type CredentialsProps = Record<CredentialKeys, string> | undefined
