@@ -1,24 +1,41 @@
 import { z } from 'zod'
 
-export const loginSchema = z.object({
-  email: z
-    .string()
-    .email('Precisa ser um email válido.')
-    .nonempty('Email obrigatório.'),
+export const loginSchema = z
+  .object({
+    email: z.string().email('Precisa ser um email válido.'),
+    password: z.string().min(6, 'A senha precisa ter pelo menos 6 caracteres.'),
+  })
 
-  password: z.string().nonempty('Senha é obrigatória.'),
-})
+  .transform((fields) => ({
+    password: fields.password,
+    email: fields.email,
+  }))
 
-export const registerSchema = z.object({
-  name: z
-    .string()
-    .max(44, 'O nome é muito grande.')
-    .nonempty('Nome é obrigatório.'),
+export const registerSchema = z
+  .object({
+    username: z
+      .string()
+      .max(44, 'O nome é muito grande.')
+      .nonempty('Nome é obrigatório.'),
+    email: z.string().email('Precisa ser um email válido.'),
+    password: z.string().min(6, 'A senha precisa ter pelo menos 6 caracteres.'),
+    confirmPassword: z.string(),
+  })
 
-  email: z
-    .string()
-    .email('Precisa ser um email válido.')
-    .nonempty('Email obrigatório.'),
+  .refine((fields) => fields.password === fields.confirmPassword, {
+    path: ['confirmPassword'],
+    message: 'As senhas não correspondem.',
+  })
 
-  password: z.string().nonempty('Senha é obrigatória.'),
-})
+  .transform((fields) => ({
+    password: fields.password,
+    confirmPassword: fields.confirmPassword,
+    email: fields.email,
+    username: fields.username
+      .trim()
+      .split(' ')
+      .map((word) => {
+        return word[0].toLocaleUpperCase().concat(word.substring(1))
+      })
+      .join(' '),
+  }))
