@@ -18,15 +18,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   login,
+  register,
 }: {
   children: React.ReactNode
   login: React.ReactNode
+  register: React.ReactNode
 }) {
   return (
     <html lang="pt-br">
       <body className={poppins.className}>
         <NextAuthProvider>
           {login}
+          {register}
           <Header />
           <Container>{children}</Container>
         </NextAuthProvider>
