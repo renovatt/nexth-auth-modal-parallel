@@ -18,15 +18,25 @@ const UserSession = () => {
       {session && session?.user ? (
         <Fragment>
           <span className="font-semibold text-primary-700">
-            {session?.user.name}
+            {session?.user?.name || session?.user?.username}
           </span>
 
-          {session?.user?.image && (
+          {session?.user?.image ? (
             <Image
               className="m-2 h-10 w-10 rounded-full"
               onLoad={handleLoad}
               alt="avatar"
               src={session?.user?.image}
+              priority
+              width={50}
+              height={50}
+            />
+          ) : (
+            <Image
+              className="m-2 h-10 w-10 rounded-full"
+              onLoad={handleLoad}
+              alt="avatar"
+              src={`https://avatars.dicebear.com/api/initials/${session?.user.email}.svg`}
               priority
               width={50}
               height={50}
