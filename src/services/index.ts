@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   CredentialsProps,
   RegisterSchemaProps,
@@ -17,14 +18,11 @@ export const credencialsLoginUser = async (data: CredentialsProps) => {
     })
     const json = await res.json()
 
-    console.log(json)
-
     if (res.ok) {
       return { response: json }
     } else {
       throw new Error(json.error)
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return { error: error.message }
   }
@@ -46,7 +44,6 @@ export const loginUser = async (data: LoginSchemaProps) => {
     } else {
       throw new Error(json.error)
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return { error: error.message }
   }
@@ -69,7 +66,6 @@ export const registerUser = async (data: RegisterSchemaProps) => {
     } else {
       throw new Error(json.error)
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return { error: error.message }
   }
