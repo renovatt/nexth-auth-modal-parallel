@@ -30,9 +30,9 @@ const ModalForm = () => {
     setLoading(true)
 
     try {
-      const { response, error } = await loginUser(data)
+      const { response: user, error } = await loginUser(data)
 
-      if (!response) {
+      if (!user?.result) {
         console.log(error)
         // toast.error(error)
       }
@@ -40,12 +40,12 @@ const ModalForm = () => {
       await signIn('credentials', {
         email: data.email,
         password: data.password,
-        redirect: true,
-        callbackUrl: '/',
+        callbackUrl: '',
+        redirect: false,
       })
 
       // toast.success(response.message)
-      console.log(response)
+      console.log('res: ', user?.result)
 
       methods.reset()
       setLoading(false)
