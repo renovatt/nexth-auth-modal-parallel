@@ -4,7 +4,7 @@ import {
   LoginSchemaProps,
 } from '@/@types'
 
-const url = 'http://localhost:3000'
+const url = process.env.URL
 
 export const credencialsLoginUser = async (data: CredentialsProps) => {
   try {
