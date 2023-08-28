@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import prisma from '@/lib/prisma'
 import * as bcrypt from 'bcrypt'
 import { RegisterSchemaProps } from '@/@types'

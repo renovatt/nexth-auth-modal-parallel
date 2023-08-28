@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { credencialsLoginUser } from '@/services'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
@@ -28,7 +29,7 @@ export const providers = [
     },
   }),
   GoogleProvider({
-    clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '',
-    clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET || '',
+    clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? '',
+    clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET ?? '',
   }),
 ]

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as bcrypt from 'bcrypt'
 import prisma from '@/lib/prisma'
 import { signJwtAcessToken } from '@/lib/jwt'

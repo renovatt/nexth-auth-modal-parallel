@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { User } from '@/@types'
 import { Session } from 'next-auth'
 import { JWT } from 'next-auth/jwt'
