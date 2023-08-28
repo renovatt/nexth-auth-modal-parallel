@@ -29,12 +29,12 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={poppins.className}>
         <ToastifyProvider>
-        <NextAuthProvider>
-          {login}
-          {register}
-          <Header />
-          <Container>{children}</Container>
-        </NextAuthProvider>
+          <NextAuthProvider>
+            {login}
+            {register}
+            <Header />
+            <Container>{children}</Container>
+          </NextAuthProvider>
         </ToastifyProvider>
       </body>
     </html>

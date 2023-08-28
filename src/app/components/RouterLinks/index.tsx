@@ -6,7 +6,7 @@ const RouterLinks = ({ href, text, onClick }: RouterLinksProps) => {
     <Link
       className={`${
         onClick ? 'text-2xl' : 'text-base'
-      } hover:text-primary-700 text-white transition-all ease-in`}
+      } text-white transition-all ease-in hover:text-primary-700`}
       href={href}
       onClick={onClick}
     >
