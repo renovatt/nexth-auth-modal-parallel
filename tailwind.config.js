@@ -12,7 +12,7 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'body-gradient':
-          'radial-gradient circle, rgba(25,46,75,1) 0%, rgba(10,10,10,1) 100%)',
+          'radial-gradient(circle, rgba(25, 46, 75, 1) 0%, rgba(10, 10, 10, 1) 100%)',
       },
       colors: {
         primary: {
@@ -43,12 +43,26 @@ module.exports = {
             transform: 'scale(1)',
           },
         },
+        hourglass: {
+          '0%': {
+            transform: 'rotate(0)',
+            animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+          },
+          '50%': {
+            transform: 'rotate(900deg)',
+            animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+          },
+          '100%': {
+            transform: 'rotate(1800deg)',
+          },
+        },
       },
       animation: {
-        mobile: 'mobile .3s ease-in',
-        zoom: 'zoom .3s forwards',
+        mobile: 'mobile 0.3s ease-in',
+        zoom: 'zoom 0.3s forwards',
+        hourglass: 'hourglass 1.2s infinite',
       },
     },
   },
   plugins: [],
-}
+};
