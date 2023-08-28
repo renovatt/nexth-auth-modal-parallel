@@ -14,7 +14,7 @@ const ModalSignWithGoogle = () => {
       callbackUrl: '',
       redirect: false,
     })
-    toast.success('Bem vindo')
+    toast.success('Bem vindo!')
     router.back()
   }, [router])
   return (

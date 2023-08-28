@@ -44,7 +44,7 @@ const ModalForm = () => {
     } catch (error) {
       setLoading(false)
       toast.error('Algum erro desconhecido aconteceu.')
-    }finally{
+    } finally {
       setLoading(false)
     }
   }

@@ -51,7 +51,7 @@ const ModalForm = () => {
       backPage()
     } catch (error) {
       toast.error('Algum erro desconhecido aconteceu.')
-    } finally{
+    } finally {
       setLoading(false)
     }
   }
