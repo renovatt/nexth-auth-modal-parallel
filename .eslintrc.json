@@ -4,7 +4,7 @@
     "@rocketseat/eslint-config/next"
   ],
   "rules": {
-    "@typescript-eslint/no-explicit-any": false,
-    "@typescript-eslint/no-unused-vars": false
+    // "no-unused-vars": "off",
+    // "@typescript-eslint/no-unused-vars": "error"
   }
 }
