@@ -10,6 +10,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { RegisterSchemaProps } from '@/@types'
 import { registerUser } from '@/services'
+import { toast } from 'react-toastify'
 
 const ModalForm = () => {
   const [loading, setLoading] = useState(false)
@@ -32,21 +33,19 @@ const ModalForm = () => {
       const { response, error } = await registerUser(data)
 
       if (!response) {
-        console.log(error.toString())
-        // toast.error(error)
+        toast.error(error)
+        setLoading(false)
+        return
       }
 
-      // toast.success(response.message)
-
-      console.log(response.message)
-
+      toast.success(response.message)
       methods.reset()
-      setLoading(false)
       backPage()
     } catch (error) {
       setLoading(false)
-      console.log('Algum erro desconhecido aconteceu.')
-      // toast.error('Algum erro desconhecido aconteceu.')
+      toast.error('Algum erro desconhecido aconteceu.')
+    }finally{
+      setLoading(false)
     }
   }
 

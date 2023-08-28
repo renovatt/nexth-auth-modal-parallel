@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation'
 import { LoginSchemaProps } from '@/@types'
 import { loginUser } from '@/services'
 import { signIn } from 'next-auth/react'
+import { toast } from 'react-toastify'
 
 const ModalForm = () => {
   const [loading, setLoading] = useState(false)
@@ -33,8 +34,9 @@ const ModalForm = () => {
       const { response: user, error } = await loginUser(data)
 
       if (!user?.result) {
-        console.log(error)
-        // toast.error(error)
+        setLoading(false)
+        toast.error(error)
+        return
       }
 
       await signIn('credentials', {
@@ -44,15 +46,13 @@ const ModalForm = () => {
         redirect: false,
       })
 
-      // toast.success(response.message)
-      console.log('res: ', user?.result)
-
+      toast.success(`${user.message.toString()} ${user.result.username}!`)
       methods.reset()
-      setLoading(false)
       backPage()
     } catch (error) {
-      console.log('Algum erro')
-      // toast.error('Algum erro desconhecido aconteceu.')
+      toast.error('Algum erro desconhecido aconteceu.')
+    } finally{
+      setLoading(false)
     }
   }
 

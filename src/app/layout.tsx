@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import Header from './components/Header'
 import Container from './components/Container'
 import NextAuthProvider from './components/NextAuthProvider'
+import { ToastifyProvider } from './components/ToastifyProvider'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={poppins.className}>
+        <ToastifyProvider>
         <NextAuthProvider>
           {login}
           {register}
           <Header />
           <Container>{children}</Container>
         </NextAuthProvider>
+        </ToastifyProvider>
       </body>
     </html>
   )

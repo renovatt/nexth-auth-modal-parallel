@@ -27,7 +27,7 @@ const ProjectRoot = ({ children }: ProjectRootProps) => {
   }
 
   return (
-    <section className="fixed inset-0 overflow-y-auto">
+    <section className="fixed inset-0 overflow-y-auto z-50">
       <section
         onClick={(e) => handleCloseModal(e)}
         className="flex min-h-full items-center justify-center py-6 backdrop-blur-sm"

@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useCallback } from 'react'
+import { toast } from 'react-toastify'
 
 const ModalSignWithGoogle = () => {
   const router = useRouter()
@@ -13,6 +14,7 @@ const ModalSignWithGoogle = () => {
       callbackUrl: '',
       redirect: false,
     })
+    toast.success('Bem vindo')
     router.back()
   }, [router])
   return (
