@@ -3,7 +3,7 @@ export default function Loading() {
     <div role="status" className="flex flex-col items-center justify-center">
       <svg
         aria-hidden="true"
-        className="mr-2 inline h-20 w-20 animate-spin fill-primary-900 text-gray-200 "
+        className="mr-2 inline h-20 w-20 animate-spin fill-red-600 text-gray-200 "
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

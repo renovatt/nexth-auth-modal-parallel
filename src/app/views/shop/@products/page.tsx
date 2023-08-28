@@ -1,14 +1,16 @@
 async function wait() {
   return new Promise<void>((resolve) => {
-    setTimeout(() => resolve(), 3000)
+    setTimeout(() => resolve(), 7000)
   })
 }
 
 export default async function Products() {
-  const res = await wait()
+  await wait()
   return (
     <div>
-      <h2 className="text-white">Products</h2>
+      <h2 className="text-base font-semibold text-white md:text-3xl">
+        Descrição
+      </h2>
     </div>
   )
 }

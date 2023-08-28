@@ -17,7 +17,7 @@ export default function Loading() {
           fill="currentFill"
         />
       </svg>
-      <span className="mt-8 font-semibold text-white">Primeira API</span>
+      <span className="mt-8 font-semibold text-white">Segunda API</span>
     </div>
   )
 }
