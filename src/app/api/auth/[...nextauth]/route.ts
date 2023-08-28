@@ -3,7 +3,7 @@ import { providers } from '@/utils/next-auth/providers'
 import { callbacks } from '@/utils/next-auth/callbacks'
 
 const handler = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   providers,
   callbacks,
   pages: {

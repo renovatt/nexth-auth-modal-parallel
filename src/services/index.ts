@@ -5,7 +5,7 @@ import {
   LoginSchemaProps,
 } from '@/@types'
 
-const url = process.env.URL
+const url = process.env.NEXT_PUBLIC_URL ?? ''
 
 export const credencialsLoginUser = async (data: CredentialsProps) => {
   try {
