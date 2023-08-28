@@ -1,6 +1,6 @@
-// import * as bcrypt from 'bcrypt'
-import prisma from '@/lib'
-// import { signJwtAcessToken } from '@/lib/jwt'
+import * as bcrypt from 'bcrypt'
+import prisma from '@/lib/prisma'
+import { signJwtAcessToken } from '@/lib/jwt'
 import { LoginSchemaProps } from '@/@types'
 import { BadRequesError, InternalError, NotFoundError } from '@/errors'
 
@@ -16,15 +16,14 @@ export async function POST(request: Request) {
 
     if (!user) throw new NotFoundError('Usuário não encontrado.')
 
-    // const passwordMatch = await bcrypt.compare(body.password, user.password)
-    // if (!passwordMatch) throw new BadRequesError('Senha está incorreta.')
+    const passwordMatch = await bcrypt.compare(body.password, user.password)
+    if (!passwordMatch) throw new BadRequesError('Senha está incorreta.')
 
-    if (user) {
+    if (user && passwordMatch) {
       const { password, ...userWithouPass } = user
-      // const accessToken = signJwtAcessToken(userWithouPass)
+      const accessToken = signJwtAcessToken(userWithouPass)
 
-      // const result = { ...userWithouPass, accessToken }
-      const result = { ...userWithouPass }
+      const result = { ...userWithouPass, accessToken }
 
       return new Response(JSON.stringify({ result, message: 'Bem vindo, ' }))
     }
