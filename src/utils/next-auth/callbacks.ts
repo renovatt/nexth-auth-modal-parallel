@@ -8,7 +8,6 @@ export const callbacks = {
   },
   async session({ session, token }: { session: Session; token: JWT }) {
     session.user = token as User
-    console.log(session.user)
     return session
   },
 }
