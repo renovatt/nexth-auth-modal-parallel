@@ -16,7 +16,7 @@ export default function Login() {
             </LoginModal.ThumbContainer>
             <LoginModal.FormContainer>
               <LoginModal.Form />
-              <LoginModal.SignGoogle />
+              {/* <LoginModal.SignGoogle /> */}
               <LoginModal.SignUp />
             </LoginModal.FormContainer>
           </LoginModal.Content>
